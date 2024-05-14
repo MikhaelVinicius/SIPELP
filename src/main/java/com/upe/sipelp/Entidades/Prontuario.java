@@ -11,6 +11,10 @@ public class Prontuario implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
+
+
+
+
     private String data_consulta;
     private String hipotese_medica;
     private String grau_de_emergencia;
@@ -96,6 +100,43 @@ public class Prontuario implements Serializable{
         return "Prontuario [id=" + id + ", nome=" + nome + ", data_consulta=" + data_consulta + ", hipotese_medica="
                 + hipotese_medica + ", grau_de_emergencia=" + grau_de_emergencia + ", avaliacao=" + avaliacao
                 + ", paciente_Id=" + paciente_Id + "]";
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+        result = prime * result + ((paciente_Id == null) ? 0 : paciente_Id.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Prontuario other = (Prontuario) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        if (nome == null) {
+            if (other.nome != null)
+                return false;
+        } else if (!nome.equals(other.nome))
+            return false;
+        if (paciente_Id == null) {
+            if (other.paciente_Id != null)
+                return false;
+        } else if (!paciente_Id.equals(other.paciente_Id))
+            return false;
+        return true;
     }
     
     
